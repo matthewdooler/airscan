@@ -21,7 +21,7 @@ $filename = "AirScan_" . $timestamp;
 $scanner = "hpaio:/usb/Officejet_J4500_series?serial=CN9C7D10MW052T";
 
 function send_email($email, $filename) {
-	globals $smtp_server, $smtp_port, $smtp_email, $smtp_password;
+	global $smtp_server, $smtp_port, $smtp_email, $smtp_password;
 	$from = '<'.$smtp_email.'>';
 	$to = '<'.$email.'>';
 	$subject = 'AirScan';
