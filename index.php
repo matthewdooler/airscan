@@ -46,13 +46,13 @@ function send_email($email, $filename) {
 if(isset($_POST["email"])) {
 	$email = $_POST["email"];
 	if(strlen($email) > 0) {
-		$scan_result = shell_exec("scanimage -d $scanner --format tiff > $filename.tiff");
+		//$scan_result = shell_exec("scanimage -d $scanner --format tiff > $filename.tiff");
 		echo "<pre>$scan_result</pre>";
-		$convert_result = shell_exec("convert $filename.tiff $filename.pdf");
+		//$convert_result = shell_exec("convert $filename.tiff $filename.pdf");
 		echo "<pre>$convert_result</pre>";
-		//send_email($email, $filename);
-		unlink("$filename.tiff");
-		unlink("$filename.pdf");
+		send_email($email, $filename);
+		//unlink("$filename.tiff");
+		//unlink("$filename.pdf");
 	} else {
 		echo "Enter an email address";
 	}
