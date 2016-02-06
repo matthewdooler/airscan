@@ -3,6 +3,7 @@
 require("config.php");
 require_once "Mail.php";
 require_once "Mail/mime.php";
+require_once "Mail/mail.php";
 
 echo '<h1>AirScan</h1>';
 
@@ -26,7 +27,9 @@ function send_email($email, $filename) {
 	$from = '<'.$smtp_email.'>';
 	$to = '<'.$email.'>';
 	$subject = 'AirScan';
-	$text = "Hi,\n\nYour scan is now ready for you. Please find the PDF attached.";
+	
+	$html = "<html><body>Hi, your scan is now ready for you. Please find the PDF attached.</body></html>";
+	$text = "Hi, your scan is now ready for you. Please find the PDF attached.";
 
 	$headers = array(
 	    'From' => $from,
@@ -38,6 +41,7 @@ function send_email($email, $filename) {
 	$mime = new Mail_mime(array('eol' => $crlf));
 
 	$mime->setTXTBody($text);
+	$mime->setHTMLBody($html); 
 	$mime->addAttachment($filename, 'application/pdf');
 
 	$body = $mime->get();
