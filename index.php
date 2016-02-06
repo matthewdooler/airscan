@@ -5,8 +5,14 @@ require_once "Mail.php";
 
 echo '<h1>AirScan</h1>';
 
+if(isset($_POST["email"])) {
+	$email = $_POST["email"];
+} else {
+	$email = "";
+}
+
 echo '<form method="POST">
-	Email: <input name="email" /><br />
+	Email: <input name="email" value="'.$email.'" /><br />
 	<input type="submit" value="Scan" />
 </form>';
 
@@ -15,7 +21,7 @@ $filename = "AirScan_" . $timestamp;
 $scanner = "hpaio:/usb/Officejet_J4500_series?serial=CN9C7D10MW052T";
 
 function send_email($email, $filename) {
-	globals $smtp_server, $smtp_port, $smtp_email, $smtp_password
+	globals $smtp_server, $smtp_port, $smtp_email, $smtp_password;
 	$from = '<'.$smtp_email.'>';
 	$to = '<'.$email.'>';
 	$subject = 'AirScan';
@@ -45,7 +51,6 @@ function send_email($email, $filename) {
 }
 
 if(isset($_POST["email"])) {
-	$email = $_POST["email"];
 	if(strlen($email) > 0) {
 		//$scan_result = shell_exec("scanimage -d $scanner --format tiff > $filename.tiff");
 		echo "<pre>$scan_result</pre>";
