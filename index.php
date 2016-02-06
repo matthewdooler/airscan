@@ -4,8 +4,8 @@ ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
 
-require("config.php")
-require_once "Mail.php";
+require("config.php") or die("config missing")
+require_once("Mail.php") or die("mail lib missing");
 
 echo '<h1>AirScan</h1>';
 
