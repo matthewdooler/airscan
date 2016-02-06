@@ -1,14 +1,14 @@
 <?php
 
+require("config.php");
+require_once("Mail.php");
+
 echo '<h1>AirScan</h1>';
 
 echo '<form method="POST">
 	Email: <input name="email" /><br />
 	<input type="submit" value="Scan" />
 </form>';
-
-require("config.php");
-require_once("Mail.php");
 
 $timestamp = date('Y-m-d_H-i-s', time());
 $filename = "AirScan_" . $timestamp;
