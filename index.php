@@ -2,6 +2,7 @@
 
 require("config.php");
 require_once "Mail.php";
+require_once "Mail/mime.php";
 
 echo '<h1>AirScan</h1>';
 
@@ -25,13 +26,21 @@ function send_email($email, $filename) {
 	$from = '<'.$smtp_email.'>';
 	$to = '<'.$email.'>';
 	$subject = 'AirScan';
-	$body = "Hi,\n\nYour scan is now ready for you. Please find the PDF attached.";
+	$text = "Hi,\n\nYour scan is now ready for you. Please find the PDF attached.";
 
 	$headers = array(
 	    'From' => $from,
 	    'To' => $to,
 	    'Subject' => $subject
 	);
+
+	$mime = new Mail_mime(array('eol' => $crlf));
+
+	$mime->setTXTBody($text);
+	$mime->addAttachment($filename, 'application/pdf');
+
+	$body = $mime->get();
+	$hdrs = $mime->headers($headers);
 
 	$smtp = Mail::factory('smtp', array(
 	        'host' => 'ssl://'.$smtp_server,
@@ -40,7 +49,6 @@ function send_email($email, $filename) {
 	        'username' => $smtp_email,
 	        'password' => $smtp_password
 	    ));
-
 	$mail = $smtp->send($to, $headers, $body);
 
 	if (PEAR::isError($mail)) {
