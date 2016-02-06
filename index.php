@@ -14,34 +14,6 @@ $timestamp = date('Y-m-d_H-i-s', time());
 $filename = "AirScan_" . $timestamp;
 $scanner = "hpaio:/usb/Officejet_J4500_series?serial=CN9C7D10MW052T";
 
-function send_email($email, $filename) {
-	$from = '<'.$smtp_email.'>';
-	$to = '<'.$email.'>';
-	$subject = 'AirScan';
-	$body = "Hi,\n\nYour scan is now ready for you. Please find the PDF attached.";
-
-	$headers = array(
-	    'From' => $from,
-	    'To' => $to,
-	    'Subject' => $subject
-	);
-
-	$smtp = Mail::factory('smtp', array(
-	        'host' => 'ssl://'.$smtp_server,
-	        'port' => $smtp_port,
-	        'auth' => true,
-	        'username' => $smtp_email,
-	        'password' => $smtp_password
-	    ));
-
-	$mail = $smtp->send($to, $headers, $body);
-
-	if (PEAR::isError($mail)) {
-	    echo('<div>' . $mail->getMessage() . '</div>');
-	} else {
-	    echo('<h2>Scan complete. Check your email for the PDF.</h2>');
-	}
-}
 
 if(isset($_POST)) {
 	$email = $_POST["email"]; // TODO: remember to escape this before using it
