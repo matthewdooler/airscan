@@ -5,6 +5,8 @@ require_once "Mail.php";
 require_once "Mail/mime.php";
 require_once "Mail/mail.php";
 
+echo '<html><head><title>AirPrint</title></head><body>';
+
 echo '<h1>AirScan</h1>';
 
 if(isset($_POST["email"])) {
@@ -77,5 +79,7 @@ if(isset($_POST["email"])) {
 		echo "Enter an email address";
 	}
 }
+
+echo '</body></html>';
 
 ?>
