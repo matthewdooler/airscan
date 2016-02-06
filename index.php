@@ -43,8 +43,8 @@ function send_email($email, $filename) {
 	}
 }
 
-if(isset($_POST)) {
-	$email = $_POST["email"]; // TODO: remember to escape this before using it
+if(isset($_POST["email"])) {
+	$email = $_POST["email"];
 	if(strlen($email) > 0) {
 		$scan_result = shell_exec("scanimage -d $scanner --format tiff > $filename.tiff");
 		echo "<pre>$scan_result</pre>";
