@@ -5,7 +5,13 @@ require_once "Mail.php";
 require_once "Mail/mime.php";
 require_once "Mail/mail.php";
 
-echo '<html><head><title>AirPrint</title></head><body>';
+echo '<html>
+<head>
+	<title>AirScan</title>
+	<link rel="apple-touch-icon" href="icon.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="icon.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="icon.png"/>
+</head><body>';
 
 echo '<h1>AirScan</h1>';
 
