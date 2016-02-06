@@ -1,7 +1,7 @@
 <?php
 
 require("config.php");
-require_once("Mail.php");
+//require_once("Mail.php");
 
 echo '<h1>AirScan</h1>';
 
