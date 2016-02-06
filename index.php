@@ -32,6 +32,7 @@ function send_email($email, $filename) {
 	$text = "Hi, your scan is now ready for you. Please find the PDF attached.";
 
 	$headers = array(
+		'MIME-Version' => '1.0',
 	    'From' => $from,
 	    'To' => $to,
 	    'Subject' => $subject
