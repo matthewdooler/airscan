@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_startup_errors',1);
-ini_set('display_errors',1);
-error_reporting(-1);
-
 echo '<h1>AirScan</h1>';
 
 echo '<form method="POST">
@@ -11,7 +7,7 @@ echo '<form method="POST">
 	<input type="submit" value="Scan" />
 </form>';
 
-require("config.php") or die("config missing")
+require("config.php") or die("config missing");
 require_once("Mail.php") or die("mail lib missing");
 
 $timestamp = date('Y-m-d_H-i-s', time());
