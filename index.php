@@ -46,7 +46,7 @@ function send_email($email, $filename) {
 	$mime->addAttachment($filename, 'application/pdf');
 
 	$body = $mime->get();
-	$hdrs = $mime->headers($headers);
+	$headers = $mime->headers($headers);
 
 	$smtp = Mail::factory('smtp', array(
 	        'host' => 'ssl://'.$smtp_server,
