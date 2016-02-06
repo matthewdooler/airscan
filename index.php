@@ -8,9 +8,10 @@ require_once "Mail/mail.php";
 echo '<html>
 <head>
 	<title>AirScan</title>
-	<link rel="apple-touch-icon" href="icon.png"/>
-	<link rel="apple-touch-icon" sizes="72x72" href="icon.png"/>
-	<link rel="apple-touch-icon" sizes="114x114" href="icon.png"/>
+	<link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+	<link rel="apple-touch-icon" href="favicon.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon.png"/>
 </head><body>';
 
 echo '<h1>AirScan</h1>';
