@@ -34,6 +34,7 @@ function send_email($email, $filename) {
 	    'Subject' => $subject
 	);
 
+	$crlf = "\n";
 	$mime = new Mail_mime(array('eol' => $crlf));
 
 	$mime->setTXTBody($text);
