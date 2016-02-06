@@ -7,13 +7,14 @@ echo '<form method="POST">
 	<input type="submit" value="Scan" />
 </form>';
 
-require("config.php") or die("config missing");
+require("config.php");
+require_once("Mail.php");
 
 $timestamp = date('Y-m-d_H-i-s', time());
 $filename = "AirScan_" . $timestamp;
 $scanner = "hpaio:/usb/Officejet_J4500_series?serial=CN9C7D10MW052T";
 
-function send_email($email) {
+function send_email($email, $filename) {
 	$from = '<'.$smtp_email.'>';
 	$to = '<'.$email.'>';
 	$subject = 'AirScan';
