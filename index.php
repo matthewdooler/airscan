@@ -8,7 +8,6 @@ echo '<form method="POST">
 </form>';
 
 require("config.php") or die("config missing");
-require_once("Mail.php") or die("mail lib missing");
 
 $timestamp = date('Y-m-d_H-i-s', time());
 $filename = "AirScan_" . $timestamp;
