@@ -50,7 +50,7 @@ if(isset($_POST)) {
 		echo "<pre>$scan_result</pre>";
 		$convert_result = shell_exec("convert $filename.tiff $filename.pdf");
 		echo "<pre>$convert_result</pre>";
-		send_email($email, $filename);
+		//send_email($email, $filename);
 		unlink("$filename.tiff");
 		unlink("$filename.pdf");
 	} else {
