@@ -30,7 +30,7 @@ echo '<form method="POST">
 $timestamp = date('Y-m-d_H-i-s', time());
 $filename = "AirScan_" . $timestamp;
 //$scanner = "hpaio:/usb/Officejet_J4500_series?serial=CN9C7D10MW052T";
-$scanner = "hp:/usb/OfficeJet_3830_series?serial=CN64C2J4C30664"
+$scanner = "hpaio:/usb/OfficeJet_3830_series?serial=CN64C2J4C30664"
 
 function send_email($email, $filename) {
 	global $smtp_server, $smtp_port, $smtp_email, $smtp_password;
